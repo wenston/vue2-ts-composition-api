@@ -4,14 +4,7 @@
   </div>
 </template>
 <script lang="tsx">
-import {
-  ref,
-  reactive,
-  watch,
-  defineComponent,
-  watchEffect,
-  onMounted
-} from "@/composition.api"
+import { ref, reactive, watch, defineComponent, watchEffect, onMounted } from "@/composition.api"
 import { useMouse } from "@/hooks/useMouse"
 import homeCss from "./home.module.css"
 export default defineComponent({
@@ -27,7 +20,6 @@ export default defineComponent({
 </script>
 <style lang="postcss" module="css">
 .abc {
-  border: 1px solid #ccc;
   padding: 2px;
   position: relative;
   & .box {

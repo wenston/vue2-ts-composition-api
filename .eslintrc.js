@@ -8,7 +8,8 @@ module.exports = {
     "no-console": process.env.NODE_ENV === "production" ? "error" : "off",
     "no-debugger": process.env.NODE_ENV === "production" ? "error" : "off",
     "no-extra-semi": 2, //禁止多余的冒号
-    "no-unused-vars": 0
+    "no-unused-vars": 0,
+    "eol-last": [1, "always"] // ??? 要求或禁止文件末尾保留一行空行
   },
   parserOptions: {
     parser: "@typescript-eslint/parser"

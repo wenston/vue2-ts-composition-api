@@ -1,29 +1,64 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <div id="app_left">
+      <router-view />
     </div>
-    <router-view />
+    <div id="nav">
+      <router-link v-for="r in routeMap" :key="r.path" :to="r.path">{{ r.meta.title }}</router-link>
+    </div>
   </div>
 </template>
 
+<script lang="ts">
+import { ref, defineComponent } from "@/composition.api"
+import { routes } from "@/router"
+export default defineComponent({
+  setup(props) {
+    const routeMap = ref(routes)
+
+    return {
+      routeMap
+    }
+  }
+})
+</script>
+
 <style>
-#app {
+* {
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  height: 100%;
+  color: #2c3e50;
+  font-size: 14px;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+}
+#app {
+  min-height: 100%;
+  display: flex;
+}
+
+#app_left {
+  flex: 1;
 }
 
 #nav {
-  padding: 30px;
+  padding: 15px;
+  border-left: 1px solid #ddd;
+  width: 280px;
+  background-color: #fcfcfc;
 }
 
 #nav a {
   font-weight: bold;
   color: #2c3e50;
+  margin-inline: 5px;
+  margin-block: 5px;
+  display: block;
 }
 
 #nav a.router-link-exact-active {
